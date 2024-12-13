@@ -1,0 +1,29 @@
+---
+import Header from '@/components/static/global/Header.astro';
+import Cart from '@/client/cart/Cart';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body class="w-full">
+		<Header />
+		<slot />
+		<Cart client:only="react" transition:persist/>
+	</body>
+</html>
+

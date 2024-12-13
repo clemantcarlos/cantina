@@ -1,0 +1,35 @@
+---
+import Bar from "@/client/search/Bar"
+import CartBtn from "@/client/cart/CartBtn"
+// ICONS
+import User from "@/icons/User.astro"
+
+
+---
+<header transition:persist="header" class="w-full h-[20dvh] flex flex-wrap items-center justify-between gap-y-2 p-4 fixed top-0 bg-white z-20 box-border">
+  <figure class="flex gap-x-2 items-end">
+    <h2 class="text-4xl font-semibold text-primary">
+      <a href="/">
+        cantina
+      </a>
+    </h2>
+  </figure> 
+  <nav class="flex items-center gap-x-4 text-secondary">
+    <button class="nav-link">
+      <CartBtn client:idle/>
+    </button>
+    <a href="/profile" class="nav-link">
+      <User />
+    </a>
+  </nav>
+  <Bar client:load/>
+</header>
+
+<style>
+  .nav-link {
+    @apply size-8 border-2 border-secondary rounded-lg p-1
+  }
+  .nav-link > svg{
+    @apply size-full
+  }
+</style>

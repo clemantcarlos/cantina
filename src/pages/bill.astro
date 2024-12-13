@@ -1,0 +1,128 @@
+---
+import BasicLayout from "@/layouts/BasicLayout.astro"
+import RightArrow from "@/icons/RightArrow.astro"
+import PaymentBtn from "@/components/client/bill/PaymentBtn"
+---
+
+<BasicLayout title="Factura">
+  <div class="w-full h-screen flex items-center justify-center"> 
+    <section id="bill" class="h-[90dvh] w-full max-w-xl relative overflow-y-auto
+      flex flex-col justify-between
+      p-10 mx-auto
+      shadow-2xl rounded-lg"> 
+      <a onclick="window.history.back()" 
+      class="absolute top-6 left-4 hover:cursor-pointer hover:*:text-tertiary">
+      <RightArrow class="size-8 text-secondary rotate-180 transition-all"/>
+      </a>
+      <h1 class="text-4xl font-bold px-20 pb-2 mb-4 border-b-4  border-primary text-center">
+        Factura
+      </h1>
+      <bill-table />
+      <div class="flex flex-col gap-y-4 mt-10">
+        <PaymentBtn type="whatsapp" client:load/>
+        <PaymentBtn type="payment" client:load/>
+      </div>
+    </section>
+  </div>
+</BasicLayout>
+
+<style>
+  #bill::-webkit-scrollbar {
+    width: .5em;
+    height: .6/4vfxem;
+  }
+  #bill::-webkit-scrollbar-thumb {
+    background-color: rgb(212, 212, 212);
+    border-radius: 1em;
+  }
+</style>
+
+<script>
+  //TODO se pueden componetizar lac clases para hacer los botones
+  class BillTable extends HTMLElement {
+    connectedCallback() {
+
+      let billTotal = 0;
+      
+      this.classList.add('flex', 'flex-col', 'items-center', 'justify-between');
+
+      const table = document.createElement('table');
+      table.classList.add(
+        'w-full',
+        'text-sm',
+        'text-left',
+        'text-primary',
+      );
+      const thead = document.createElement('thead');
+      thead.classList.add(
+        'text-left',
+        'text-medium',
+        'uppercase',
+        'text-primary',
+        'font-bold'
+      );
+      thead.innerHTML = `
+        <th scope="col" class="text-start py-3">
+          Producto
+        </th>
+        <th scope="col" class="py-3">
+          Cantidad
+        </th>
+        <th scope="col" class="py-3 text-right">
+          Precio
+        </th>
+      `
+      table.appendChild(thead);
+      const tbody = document.createElement('tbody');
+
+      table.appendChild(thead)
+      table.appendChild(tbody);
+
+      this.appendChild(table);
+
+
+      // DOM
+      const $billTotal = document.createElement('tr');
+      $billTotal.classList.add(
+        'border-t-2', 
+        'border-primary',
+      );
+      // LOCAL STORAGE
+      const ls = localStorage.getItem('cartItems') 
+
+      if(ls !== null) {
+        const parsedCartItems = JSON.parse(ls as string);
+
+        Object.values(parsedCartItems).forEach((cartItem:any) => {
+          // CALCULATE THE TOTAL
+          billTotal += Number(cartItem.price) * Number(cartItem.quantity);
+
+          // APPEND THE ROW
+          tbody.innerHTML += `<tr class="border-b border-gray-200 dark:border-gray-700">
+            <td scope="row" class="py-4 font-medium">
+              ${cartItem.name}
+            </td>
+            <td class="py-4">${cartItem.quantity}</td>
+            <td class="py-4 text-primary font-bold text-right">
+              ${Number(cartItem.price) * Number(cartItem.quantity)}$
+            </td>
+          </tr>`
+        });
+        tbody.innerHTML += '<tr><td colspan="3"><br><br></td></tr>';
+        // APPEND THE TOTAL
+        $billTotal.innerHTML = `
+        <td class="text-primary font-bold pt-4">
+          Total
+        </td>
+        <td class="pt-4"></td>
+        <td class="pt-4 text-right font-bold text-primary">
+          ${billTotal}$
+        </td>
+        `
+        tbody.appendChild($billTotal);
+      }
+    }
+  }
+  customElements.define("bill-table", BillTable);
+</script>
+

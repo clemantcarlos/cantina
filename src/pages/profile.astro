@@ -1,0 +1,47 @@
+---
+import BasicLayout from "@/layouts/BasicLayout.astro";
+import Card from "@/components/static/profile/Card.astro";
+
+//ICONS 
+import RightArrow from "@/icons/RightArrow.astro";
+import Pencil from "@/icons/Pencil.astro"
+import User from "@/icons/User.astro"
+import Shield from "@/icons/Shield.astro"
+import MapPin from "@/icons/MapPin.astro"
+
+
+---
+<BasicLayout title="cantina">
+  <header class="w-full h-[10dvh] flex items-center justify-between px-4 text-secondary ">
+    <a href="/">
+      <RightArrow class="size-6 rotate-180"/>
+    </a>
+    <h1 class="flex-1 text-lg text-center font-bold text-primary mt-2">
+      Mi perfil
+    </h1>
+    <!-- TODO - MAKE EDIT PROFILE PAGE  -->
+    <a href="/">
+      <Pencil class="size-8"/>
+    </a>
+  </header>
+  <main class="w-full px-4">
+    <article class="w-full text-primary flex items-center justify-center gap-x-4 mb-16">
+      <img src="/img/iphoneUser2.webp"class="size-24" alt="">
+      <div class="flex-1 pt-4">
+        <h2 class="text-2xl font-bold">Alejandra Lobaton</h2>
+        <small>alelob8@gmail.com</small>
+      </div>
+    </article>
+    <section class="w-full flex flex-col px-4">
+      <Card title="Datos de tu cuenta" description="Datos que representan a tu cuenta en Cantina.">
+        <User class="size-8" slot='icon'/>
+      </Card>
+      <Card title="Seguridad" description="Configuraciones para hcer tu cuenta mas segura"> 
+        <Shield class="size-8" slot='icon'/>
+      </Card>
+      <Card title="Direcciones" description="Direcciones guardadas en tu cuenta.">  
+        <MapPin class="size-8" slot='icon'/>
+      </Card>
+    </section>
+  </main>
+</BasicLayout>

@@ -1,0 +1,19 @@
+---
+import Breadcrums from "@/global/Breadcrums.astro"
+import Layout from "@/layouts/Layout.astro"
+import Form from "@/client/cart/Form.tsx"
+
+import { type APIResponse } from "@/utils/interfaces"
+import data from '@/utils/api.json'
+
+const { id } = Astro.params
+const item = data.find(( item ) => item.id === id) as APIResponse;
+if(!item) return Astro.redirect('/404')
+const { nombre } = item
+---
+<Layout title="cantina">
+  <section class="w-full px-4">
+    <Breadcrums item={nombre}/>
+    <Form {...item} client:load/>
+  </section>
+</Layout>

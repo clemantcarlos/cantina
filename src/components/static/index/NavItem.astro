@@ -1,0 +1,13 @@
+---
+interface Props{
+  label:string
+  ref:string
+}
+const {label, ref} = Astro.props
+---
+<a href={ref} class="flex flex-col items-center 
+  md:flex-row md:gap-x-4 md:px-4 md:py-2 md:border md:rounded-md 
+  md:hover:bg-gray-200 transition-all">
+  <slot />
+  { label }
+</a>

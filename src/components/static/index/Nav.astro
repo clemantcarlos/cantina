@@ -1,0 +1,58 @@
+---
+import NavItem from '@/index/NavItem.astro';
+// ICONS/
+import Meat from '@/icons/Meat.astro';
+import Milk from '@/icons/Milk.astro'
+import Apple from '@/icons/Apple.astro'
+import Avocado from '@/icons/Avocado.astro'
+import Drink from '@/icons/Drink.astro'
+import Fish from '@/icons/Fish.astro'
+---
+
+<div class="w-full px-4">
+  <nav class="w-full text-primary flex gap-x-6 pb-2 mt-[23dvh]
+    md:justify-between mx-auto
+    overflow-x-scroll" >
+    <NavItem ref='/carnes' label="Carnes">
+      <Meat class="border md:border-none border-secondary rounded-full md:rounded-none size-14 p-1"/>
+    </NavItem>
+    <NavItem ref='/pescado' label="Pescados">
+      <Fish class="border md:border-none border-secondary rounded-full md:rounded-none size-14 p-1"/>
+    </NavItem>
+    <NavItem ref='/lácteos' label="Lacteos">
+      <Milk class="border md:border-none border-secondary rounded-full md:rounded-none size-14 p-1"/>
+    </NavItem>
+    <NavItem ref='/frutas' label="Frutas">
+      <Apple class="border md:border-none border-secondary rounded-full md:rounded-none size-14 p-1"/>
+    </NavItem>
+    <NavItem ref='/verduras' label="Verduras">
+      <Avocado class="border md:border-none border-secondary rounded-full md:rounded-none size-14 p-1"/>
+    </NavItem>
+    <NavItem ref='/bebidas' label="Bebidas">
+      <Drink class="border md:border-none border-secondary rounded-full md:rounded-none size-14 p-1"/>
+    </NavItem>
+    <NavItem ref='/bebidas' label="Bebidas">
+      <Drink class="border md:border-none border-secondary rounded-full md:rounded-none size-14 p-1"/>
+    </NavItem>
+    <NavItem ref='/bebidas' label="Bebidas">
+      <Drink class="border md:border-none border-secondary rounded-full md:rounded-none size-14 p-1"/>
+    </NavItem>
+    <NavItem ref='/bebidas' label="Bebidas">
+      <Drink class="border md:border-none border-secondary rounded-full md:rounded-none size-14 p-1"/>
+    </NavItem>
+    <NavItem ref='/bebidas' label="Bebidas">
+      <Drink class="border md:border-none border-secondary rounded-full md:rounded-none size-14 p-1"/>
+    </NavItem>
+  </nav>
+</div>
+
+<style>
+  nav::-webkit-scrollbar {
+    width: .5em;
+    height: .6/4vfxem;
+  }
+  nav::-webkit-scrollbar-thumb {
+    background-color: rgb(212, 212, 212);
+    border-radius: 1em;
+  }
+</style>

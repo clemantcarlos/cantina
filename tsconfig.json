@@ -1,0 +1,28 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@/icons/*":[
+        "src/components/icons/*"
+      ],
+      "@/global/*":[
+        "src/components/static/global/*"
+      ],
+      "@/index/*":[
+        "src/components/static/index/*"
+      ],
+      "@/client/*":[
+        "src/components/client/*"
+      ],
+      "@/storage/*":[
+        "src/components/client/cart/storage/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
+}

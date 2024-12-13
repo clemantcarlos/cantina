@@ -1,0 +1,502 @@
+[
+    {
+        "id": "P001",
+        "nombre": "Pollo Entero",
+        "descripcion": "Pollo fresco, ideal para asar.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 4500,
+        "categoria": "carnes",
+        "url_imagen": "https://i.imgur.com/DdO2vok.jpeg"
+    },
+    {
+        "id": "P002",
+        "nombre": "Filete de Salmón",
+        "descripcion": "Filete de salmón fresco, rico en omega-3.",
+        "cantidad": "500 g",
+        "cantidad_inventario":10,
+        "precio": 7000,
+        "categoria": "pescado",
+        "url_imagen": "https://i.imgur.com/NYyRiis.jpeg"
+    },
+    {
+        "id": "P003",
+        "nombre": "Leche Entera",
+        "descripcion": "Leche fresca entera, ideal para el desayuno.",
+        "cantidad": "1 L",
+        "cantidad_inventario":10,
+        "precio": 1200,
+        "categoria": "lácteos",
+        "url_imagen": "https://i.imgur.com/bGp7Azq.jpeg"
+    },
+    {
+        "id": "P004",
+        "nombre": "Yogur Natural",
+        "descripcion": "Yogur natural sin saborizantes ni azúcares añadidos.",
+        "cantidad": "500 g",
+        "cantidad_inventario":10,
+        "precio": 900,
+        "categoria": "lácteos",
+        "url_imagen": "https://i.imgur.com/ZzciRXF.jpeg"
+    },
+    {
+        "id": "P005",
+        "nombre": "Manzana Roja",
+        "descripcion": "Manzanas frescas y crujientes, perfectas para snack.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 1500,
+        "categoria": "frutas",
+        "url_imagen": "https://i.imgur.com/vc00pWM.jpeg"
+    },
+    {
+        "id": "P006",
+        "nombre": "Plátano",
+        "descripcion": "Plátanos frescos, ideales para batidos.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 1200,
+        "categoria": "frutas",
+        "url_imagen": "https://i.imgur.com/sZ33746.jpeg"
+    },
+    {
+        "id": "P007",
+        "nombre": "Zanahoria",
+        "descripcion": "Zanahorias frescas y crujientes.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 800,
+        "categoria": "verduras",
+        "url_imagen": "https://i.imgur.com/uR0WrZs.jpeg"
+    },
+    {
+        "id": "P008",
+        "nombre": "Pimiento Rojo",
+        "descripcion": "Pimientos frescos y coloridos.",
+        "cantidad": "500 g",
+        "cantidad_inventario":10,
+        "precio": 1200,
+        "categoria": "verduras",
+        "url_imagen": "https://i.imgur.com/zdMa17B.png"
+    },
+    {
+        "id": "P009",
+        "nombre": "Cerveza Artesanal",
+        "descripcion": "Cerveza artesanal de producción local.",
+        "cantidad": "355 ml",
+        "cantidad_inventario":10,
+        "precio": 1000,
+        "categoria": "bebidas",
+        "url_imagen": "https://i.imgur.com/jEvqUg5.png"
+    },
+    {
+        "id": "P010",
+        "nombre": "Jugo de Naranja",
+        "descripcion": "Jugo de naranja natural, sin conservantes.",
+        "cantidad": "1 L",
+        "cantidad_inventario":10,
+        "precio": 1200,
+        "categoria": "bebidas",
+        "url_imagen": "https://i.imgur.com/I3QpnmN.jpeg"
+    },
+    {
+        "id": "P011",
+        "nombre": "Carne Molida",
+        "descripcion": "Carne molida de res, ideal para hamburguesas.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 6000,
+        "categoria": "carnes",
+        "url_imagen": "https://i.imgur.com/Rm4k709.jpeg"
+    },
+    {
+        "id": "P012",
+        "nombre": "Atún en Lata",
+        "descripcion": "Atún en aceite, listo para usar en ensaladas.",
+        "cantidad": "200 g",
+        "cantidad_inventario":10,
+        "precio": 1500,
+        "categoria": "pescado",
+        "url_imagen": "https://i.imgur.com/tget1i4.png"
+    },
+    {
+        "id": "P013",
+        "nombre": "Queso Fresco",
+        "descripcion": "Queso fresco de cabra, ideal para ensaladas.",
+        "cantidad": "200 g",
+        "cantidad_inventario":10,
+        "precio": 2500,
+        "categoria": "lácteos",
+        "url_imagen": "https://i.imgur.com/4QUxAQU.jpeg"
+    },
+    {
+        "id": "P014",
+        "nombre": "Uva",
+        "descripcion": "Uvas frescas, ideales para un snack saludable.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 2500,
+        "categoria": "frutas",
+        "url_imagen": "https://i.imgur.com/mPa5KbL.png"
+    },
+    {
+        "id": "P015",
+        "nombre": "Palta",
+        "descripcion": "Palta madura, ideal para ensaladas.",
+        "cantidad": "500 g",
+        "cantidad_inventario":10,
+        "precio": 1500,
+        "categoria": "verduras",
+        "url_imagen": "https://i.imgur.com/xTqS7O3.png"
+    },
+    {
+        "id": "P016",
+        "nombre": "Coca-Cola",
+        "descripcion": "Bebida gaseosa clásica, refrescante y deliciosa.",
+        "cantidad": "1.5 L",
+        "cantidad_inventario":10,
+        "precio": 900,
+        "categoria": "bebidas",
+        "url_imagen": "https://i.imgur.com/wiNfcOa.jpeg"
+    },
+    {
+        "id": "P017",
+        "nombre": "Leche Chocolatada",
+        "descripcion": "Leche con sabor a chocolate, perfecta para los niños.",
+        "cantidad": "1 L",
+        "cantidad_inventario":10,
+        "precio": 1300,
+        "categoria": "lácteos",
+        "url_imagen": "https://i.imgur.com/TXjqzWi.png"
+    },
+    {
+        "id": "P018",
+        "nombre": "Pescado Merluza",
+        "descripcion": "Filete de merluza, ideal para freír.",
+        "cantidad": "500 g",
+        "cantidad_inventario":10,
+        "precio": 5000,
+        "categoria": "pescado",
+        "url_imagen": "https://i.imgur.com/xwOz24I.jpeg"
+    },
+    {
+        "id": "P019",
+        "nombre": "Cebolla",
+        "descripcion": "Cebollas frescas, esenciales para la cocina.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 700,
+        "categoria": "verduras",
+        "url_imagen": "https://i.imgur.com/J2AEKGU.jpeg"
+    },
+    {
+        "id": "P020",
+        "nombre": "Naranjas",
+        "descripcion": "Naranjas frescas, perfectas para jugo.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 1600,
+        "categoria": "frutas",
+        "url_imagen": "https://i.imgur.com/cB7VOWu.png"
+    },
+    {
+        "id": "P021",
+        "nombre": "Pasta de Dientes",
+        "descripcion": "Pasta dental con sabor a menta.",
+        "cantidad": "100 g",
+        "cantidad_inventario":10,
+        "precio": 800,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/k5MSv0A.jpeg"
+    },
+    {
+        "id": "P022",
+        "nombre": "Arroz Blanco",
+        "descripcion": "Arroz blanco de grano largo, ideal para acompañar.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 900,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/MD830Ut.jpeg"
+    },
+    {
+        "id": "P023",
+        "nombre": "Harina de Trigo",
+        "descripcion": "Harina de trigo, perfecta para repostería.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 700,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/KWvdeMN.jpeg"
+    },
+    {
+        "id": "P024",
+        "nombre": "Salsa de Tomate",
+        "descripcion": "Salsa de tomate lista para usar en pastas.",
+        "cantidad": "500 g",
+        "cantidad_inventario":10,
+        "precio": 1200,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/Ktv2njb.jpeg"
+    },
+    {
+        "id": "P025",
+        "nombre": "Aceite de Oliva",
+        "descripcion": "Aceite de oliva virgen extra, ideal para ensaladas.",
+        "cantidad": "500 ml",
+        "cantidad_inventario":10,
+        "precio": 3500,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/QIHd8Cs.jpeg"
+    },
+    {
+        "id": "P026",
+        "nombre": "Papas Fritas",
+        "descripcion": "Papas fritas crujientes, perfectas para picar.",
+        "cantidad": "200 g",
+        "cantidad_inventario":10,
+        "precio": 1000,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/8G0CGah.jpeg"
+    },
+    {
+        "id": "P027",
+        "nombre": "Chocolate con Almendras",
+        "descripcion": "Chocolate con trozos de almendra, delicioso y crujiente.",
+        "cantidad": "100 g",
+        "cantidad_inventario":10,
+        "precio": 1500,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/Xzag86P.jpeg"
+    },
+    {
+        "id": "P028",
+        "nombre": "Galletas de Vainilla",
+        "descripcion": "Galletas crujientes con sabor a vainilla.",
+        "cantidad": "200 g",
+        "cantidad_inventario":10,
+        "precio": 1200,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/ojXctML.jpeg"
+    },
+    {
+        "id": "P029",
+        "nombre": "Salchichas",
+        "descripcion": "Salchichas de cerdo, ideales para asar o freír.",
+        "cantidad": "500 g",
+        "cantidad_inventario":10,
+        "precio": 2000,
+        "categoria": "carnes",
+        "url_imagen": "https://i.imgur.com/bmhHTtS.jpeg"
+    },
+    {
+        "id": "P030",
+        "nombre": "Pechuga de Pavo",
+        "descripcion": "Pechuga de pavo fresca, ideal para sandwiches.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 7000,
+        "categoria": "carnes",
+        "url_imagen": "https://i.imgur.com/umkZMoM.png"
+    },
+    {
+        "id": "P031",
+        "nombre": "Pescado Congelado",
+        "descripcion": "Pescado congelado, listo para cocinar.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 6000,
+        "categoria": "pescado",
+        "url_imagen": "https://i.imgur.com/yqQAUXK.jpeg"
+    },
+    {
+        "id": "P032",
+        "nombre": "Queso Rallado",
+        "descripcion": "Queso rallado, ideal para gratinar.",
+        "cantidad": "200 g",
+        "cantidad_inventario":10,
+        "precio": 1800,
+        "categoria": "lácteos",
+        "url_imagen": "https://i.imgur.com/XE8x1iS.jpeg"
+    },
+    {
+        "id": "P033",
+        "nombre": "Kiwi",
+        "descripcion": "Kiwis frescos, ricos en vitamina C.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 2500,
+        "categoria": "frutas",
+        "url_imagen": "https://i.imgur.com/BHECADu.jpeg"
+    },
+    {
+        "id": "P034",
+        "nombre": "Melón",
+        "descripcion": "Melón dulce y refrescante, ideal para el verano.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 2000,
+        "categoria": "frutas",
+        "url_imagen": "https://i.imgur.com/3qZ4cwk.jpeg"
+    },
+    {
+        "id": "P035",
+        "nombre": "Cerveza Rubia",
+        "descripcion": "Cerveza rubia refrescante, ideal para el calor.",
+        "cantidad": "355 ml",
+        "cantidad_inventario":10,
+        "precio": 900,
+        "categoria": "bebidas",
+        "url_imagen": "https://i.imgur.com/UudUZzI.jpeg"
+    },
+    {
+        "id": "P036",
+        "nombre": "Bebida de Piña",
+        "descripcion": "Bebida sabor piña, refrescante y deliciosa.",
+        "cantidad": "1 L",
+        "cantidad_inventario":10,
+        "precio": 800,
+        "categoria": "bebidas",
+        "url_imagen": "https://i.imgur.com/z1pUNAx.jpeg"
+    },
+    {
+        "id": "P037",
+        "nombre": "Choclo",
+        "descripcion": "Choclo fresco, ideal para ensaladas y guisos.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 1200,
+        "categoria": "verduras",
+        "url_imagen": "https://i.imgur.com/SUWf7u9.jpeg"
+    },
+    {
+        "id": "P038",
+        "nombre": "Brocoli",
+        "descripcion": "Brócoli fresco, ideal para cocinar al vapor.",
+        "cantidad": "500 g",
+        "cantidad_inventario":10,
+        "precio": 1800,
+        "categoria": "verduras",
+        "url_imagen": "https://i.imgur.com/Jsyc5VG.jpeg"
+    },
+    {
+        "id": "P039",
+        "nombre": "Papas",
+        "descripcion": "Papas frescas, perfectas para freír o hervir.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 900,
+        "categoria": "verduras",
+        "url_imagen": "https://i.imgur.com/B6r1eAC.jpeg"
+    },
+    {
+        "id": "P040",
+        "nombre": "Mermelada de Frutilla",
+        "descripcion": "Mermelada de frutilla, ideal para desayunos.",
+        "cantidad": "400 g",
+        "cantidad_inventario":10,
+        "precio": 1500,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/BqRHji9.jpeg"
+    },
+    {
+        "id": "P041",
+        "nombre": "Bebida Energética",
+        "descripcion": "Bebida energética, ideal para antes de hacer ejercicio.",
+        "cantidad": "500 ml",
+        "cantidad_inventario":10,
+        "precio": 1200,
+        "categoria": "bebidas",
+        "url_imagen": "https://i.imgur.com/0547izo.jpeg"
+    },
+    {
+        "id": "P042",
+        "nombre": "Sopa Instantánea",
+        "descripcion": "Sopa instantánea de pollo, rápida y fácil de preparar.",
+        "cantidad": "75 g",
+        "cantidad_inventario":10,
+        "precio": 500,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/uOGTUDE.jpeg"
+    },
+    {
+        "id": "P043",
+        "nombre": "Noodles",
+        "descripcion": "Noodles instantáneos, listos en minutos.",
+        "cantidad": "100 g",
+        "cantidad_inventario":10,
+        "precio": 400,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/ePT0mGU.jpeg"
+    },
+    {
+        "id": "P044",
+        "nombre": "Salsa de Soja",
+        "descripcion": "Salsa de soja, ideal para aderezar platos.",
+        "cantidad": "250 ml",
+        "cantidad_inventario":10,
+        "precio": 600,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/Mvhatjy.jpeg"
+    },
+    {
+        "id": "P045",
+        "nombre": "Gelatina de Frutilla",
+        "descripcion": "Gelatina sabor frutilla, fácil de preparar.",
+        "cantidad": "85 g",
+        "cantidad_inventario":10,
+        "precio": 400,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/I8DAoCu.jpeg"
+    },
+    {
+        "id": "P046",
+        "nombre": "Galletas Saladas",
+        "descripcion": "Galletas saladas, perfectas para picar.",
+        "cantidad": "200 g",
+        "cantidad_inventario":10,
+        "precio": 900,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/CihADtj.jpeg"
+    },
+    {
+        "id": "P047",
+        "nombre": "Crema Hidratante",
+        "descripcion": "Crema hidratante para la piel, suave y nutritiva.",
+        "cantidad": "100 ml",
+        "cantidad_inventario":10,
+        "precio": 2000,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/M1UN9a0.jpeg"
+    },
+    {
+        "id": "P048",
+        "nombre": "Desodorante",
+        "descripcion": "Desodorante con fragancia fresca.",
+        "cantidad": "150 ml",
+        "cantidad_inventario":10,
+        "precio": 1200,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/xc8RN70.jpeg"
+    },
+    {
+        "id": "P049",
+        "nombre": "Lentejas",
+        "descripcion": "Lentejas secas, perfectas para guisos.",
+        "cantidad": "1 kg",
+        "cantidad_inventario":10,
+        "precio": 1200,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/cfWj8H5.jpeg"
+    },
+    {
+        "id": "P050",
+        "nombre": "Cereal Integral",
+        "descripcion": "Cereal integral, ideal para el desayuno.",
+        "cantidad": "400 g",
+        "cantidad_inventario":10,
+        "precio": 1500,
+        "categoria": "otros",
+        "url_imagen": "https://i.imgur.com/fX32PKk.jpeg"
+    }
+]

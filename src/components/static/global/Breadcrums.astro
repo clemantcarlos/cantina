@@ -1,0 +1,30 @@
+---
+import Home from "@/icons/Home.astro"
+import RightArrow from "@/icons/RightArrow.astro"
+
+interface Props{
+  item?:string;
+  className?:string;
+}
+const { item, className } = Astro.props
+---
+<nav class={!className ? "flex mt-[23dvh] mb-4 px-2" : className }
+  aria-label="Breadcrumb">
+  <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+    <li class="inline-flex items-center">
+      <a href="/" 
+        class="inline-flex items-center text-sm font-medium text-tertiary hover:text-primary">
+        <Home class="size-3 me-2.5"/>
+        Inicio
+      </a>
+    </li>
+    <li aria-current="page">
+      <div class="flex items-center">
+        <RightArrow class="rtl:rotate-180 size-3 text-tertiary mx-1"/>
+        <span class="ms-1 text-sm font-medium text-primary md:ms-2 ">
+          { item }
+        </span>
+      </div>
+    </li>
+  </ol>
+</nav>

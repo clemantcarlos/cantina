@@ -1,0 +1,38 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/index/Nav.astro';
+import Breadcrums from '@/global/Breadcrums.astro';
+import CardItem from '@/global/CardItem.astro';
+// FETCHING DATA FROM API
+import data from '@/utils/api.json'
+const {name} = Astro.params
+
+const filteredData:any = data.filter((item:any)=>{
+  const nameToSearch = name?.toLowerCase()
+  return item.nombre.toLowerCase().includes(nameToSearch)
+})
+---
+
+<Layout title="Cantina">
+  <Nav />
+  <main class="w-full p-4">
+    <Breadcrums className='w-full ml-2' item={name}/>
+    <!-- ITEMS CARD SECTION -->
+    <section class="w-full flex flex-col gap-y-4 mt-4">
+     {filteredData.length ?
+        filteredData.map(({id,nombre,descripcion,precio,url_imagen}:any)=>(
+          <CardItem 
+            id={id}
+            title={nombre}
+            description={descripcion}
+            price={precio}
+            img={url_imagen}
+          />
+        ))
+      : <h1 class="text-2xl font-bold text-primary px-2">
+          No hay productos que coincidan con tu búsqueda
+        </h1> 
+      }
+    </section>
+  </main>
+</Layout>

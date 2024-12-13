@@ -1,0 +1,30 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/static/index/Nav.astro";
+import Breadcrums from '@/global/Breadcrums.astro';
+import CardItem from "@/components/static/global/CardItem.astro";
+// FETCHING DATA FROM API
+import data from '@/utils/api.json'
+const { category } = Astro.params
+const filteredData:any = data.filter((item:any)=>item.categoria === category)
+---
+
+<Layout title="Cantina">
+  <Nav />
+  <main class="w-full p-4">
+    <Breadcrums className='w-full ml-2' item={category}/>
+    <!-- ITEMS CARD SECTION -->
+    <section class="w-full grid grid-cols-1 gap-y-4 mt-4
+      md:grid-cols-2 lg:grid-cols-3 md:gap-4">
+      {filteredData.map(({id,nombre,descripcion,precio,url_imagen}:any)=>(
+        <CardItem 
+          id={id}
+          title={nombre}
+          description={descripcion}
+          price={precio}
+          img={url_imagen}
+        />
+      ))}
+    </section>
+  </main>
+</Layout>

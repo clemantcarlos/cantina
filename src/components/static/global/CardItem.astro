@@ -1,0 +1,26 @@
+---
+interface Props{
+  id:string
+  title:string;
+  price:string;
+  description:string;
+  img:string
+}
+const { id, title, price, description, img } = Astro.props
+---
+<article class="w-full flex border border-secondary rounded-xl p-2">
+  <a href={"/item/" + id} class="w-full flex">
+  <img src={img} class="size-24 mr-4" alt="">
+    <div class="flex-1 flex flex-col justify-center">
+      <h3 class="text-lg text-primary font-bold">
+        { title }
+      </h3>
+      <strong class="font-semibold text-primary mb-1">
+        ${ price }
+      </strong>
+      <p class="text-tertiary text-sm mb-1">
+        { description }
+      </p>
+    </div>
+  </a>
+</article>

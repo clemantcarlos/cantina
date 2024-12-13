@@ -1,0 +1,40 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+import HeroBanner from '@/index/HeroBanner.astro';
+import Nav from '@/index/Nav.astro';
+
+// ITEM CARDS
+import CardItem from '@/global/CardItem.astro';
+import LoadingCardItem from '@/global/LoadingCardItem.astro';
+
+import data from '@/utils/api.json'
+---
+
+<Layout title="Cantina">
+  <Nav />
+  <main class="w-full p-4">
+    <HeroBanner />
+    <!-- ITEMS CARD SECTION -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+      {data.map((item:any)=>(
+        <CardItem 
+          id={item.id}
+          title={item.nombre}
+          description={item.descripcion}
+          price={item.precio}
+          img={item.url_imagen}
+          />
+      ))}
+      <LoadingCardItem />
+      <LoadingCardItem />
+      <LoadingCardItem />
+      <LoadingCardItem />
+      <LoadingCardItem />
+      <LoadingCardItem />
+      <LoadingCardItem />
+      <LoadingCardItem />
+
+    </section>
+  </main>
+</Layout>
