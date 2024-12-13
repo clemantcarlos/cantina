@@ -27,16 +27,16 @@ export default function Table() {
       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
           <th scope="col" className="px-6 py-3">
-            Name
+            Nombre
           </th>
           <th scope="col" className="px-6 py-3">
-            Email
+            Correo electrónico
           </th>
           <th scope="col" className="px-6 py-3">
-            Phone
+            Teléfono
           </th>
           <th scope="col" className="px-6 py-3">
-            Action
+            Acciones
           </th>
         </tr>
       </thead>
@@ -57,11 +57,18 @@ export default function Table() {
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  Edit
+                  Editar
                 </a>
               </td>
             </tr>
           ))}
+          {!data || data.length === 0 && (
+            <tr>
+              <td colSpan={4} className="px-6 py-4 text-center">
+                Usuarios no encontrados
+              </td>
+            </tr>
+          )}
       </tbody>
     </table>
   );
