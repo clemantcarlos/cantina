@@ -1,14 +1,11 @@
 ---
 import Layout from "@/layouts/Dashboard.astro";
-import Table from "@/client/dashboard/user/Table";
+import Table from "@/components/client/dashboard/user/components/Table/Table";
 ---
 
 <Layout title="Dashboard">
   <section class="p-4">
     <h2 class="text-3xl font-bold mb-4">User</h2>
-
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <Table client:load/>
-    </div>
+    <Table client:load />
   </section>
 </Layout>
