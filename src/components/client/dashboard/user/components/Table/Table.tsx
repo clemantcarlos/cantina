@@ -2,16 +2,28 @@ import Plus from "@/icons/react/Plus";
 import Pagination from "./Pagination";
 import AddModal from "../Modal/AddModal";
 import useTable from "../../hooks/useTable";
+import Edit from "@/components/icons/react/Edit";
+import Delete from "@/components/icons/react/Delete";
+import EditModal from "../Modal/EditModal";
+import DeleteModal from "../Modal/DeleteModal";
 
 export default function Table() {
   const {
     data,
     pagination,
+    showModal,
+    modalName,
     searchHandler,
-    showAddUser,
-    openAddUserModal,
-    closeAddUserModal
+    openModal,
+    closeModal
   } = useTable();
+
+  const modalList:{[key:string]:JSX.Element | string} = {
+    'default': '',
+    'add': <AddModal show={showModal} hide={closeModal}/>,
+    'edit': <EditModal show={showModal} hide={closeModal}/>,
+    'delete': <DeleteModal show={showModal} hide={closeModal}/>
+  }
 
   return (
     <>
@@ -60,7 +72,7 @@ export default function Table() {
           </div>
         </form>
         <button
-          onClick={openAddUserModal}
+          onClick={() => openModal({modalName:'add'})}
           type="button"
           className="size-9 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm text-center inline-flex items-center"
         >
@@ -101,13 +113,17 @@ export default function Table() {
                   </th>
                   <td className="px-6 py-4">{user.email}</td>
                   <td className="px-6 py-4">{user.phoneNumber}</td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Editar
-                    </a>
+                  <td className="px-6 py-4 text-center">
+                    <button className="text-blue-600  
+                      hover:cursor-pointer hover:text-blue-800"
+                      onClick={() => openModal({modalName:'edit'})}>
+                      <Edit />
+                    </button>
+                    <button className="text-rose-600
+                      hover:cursor-pointer hover:text-rose-800"
+                      onClick={() => openModal({modalName:'delete'})}>
+                      <Delete />
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -123,7 +139,7 @@ export default function Table() {
         </table>
       </div>
       <Pagination skip={pagination.take} total={pagination.total} />
-      <AddModal show={showAddUser} hide={closeAddUserModal} />
+      {modalList[modalName]}
     </>
   );
 }

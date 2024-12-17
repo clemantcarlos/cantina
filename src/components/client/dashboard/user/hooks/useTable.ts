@@ -31,7 +31,10 @@ export const searchUsers = (setData: Dispatch<SetStateAction<User[]>>, search: s
 
 export default function useTable() {
   const [data, setData] = useState<User[]>([]);
-  const [showAddUser, setShowAddUser] = useState<Boolean>(false);
+
+  const [showModal, setShowModal] = useState<Boolean>(false);
+  const [modalName, setModalName] = useState<string>(0);
+
   const [pagination, setPagination] = useState({
     skip: 0,
     take: 10,
@@ -56,16 +59,23 @@ export default function useTable() {
     searchUsers(setData, search);
   };
 
-  const openAddUserModal = () => setShowAddUser(true);
+  const openModal = ({modalName}:{modalName:string}) => {
+    setModalName(modalName);
+    setShowModal(true);
+  }
 
-  const closeAddUserModal = () => setShowAddUser(false);
+  const closeModal = () =>{
+    setModalName('default');
+    setShowModal(false);
+  }
 
   return { 
     data, 
     pagination, 
-    showAddUser, 
+    showModal, 
+    modalName,
     searchHandler,
-    openAddUserModal,
-    closeAddUserModal
+    openModal,
+    closeModal
   };
 }

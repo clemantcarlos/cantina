@@ -1,3 +1,4 @@
+import Save from "@/components/icons/react/Save";
 import Modal from "./Modal";
 export default function AddModal({
   show,
@@ -6,55 +7,9 @@ export default function AddModal({
   show: Boolean;
   hide: () => void;
 }) {
-  const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("form handler");
-
-    const formData = new FormData(e.currentTarget);
-
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const phoneNumber = formData.get("phoneNumber") as string;
-    const cedula = formData.get("cedula") as string;
-    const cedulaType = formData.get("cedulaType") as string;
-    const password = formData.get("password") as string;
-    const confirmPassword = formData.get("confirmPassword") as string;
-    const address = formData.get("address") as string;
-
-    const body = {
-      name,
-      email,
-      phoneNumber,
-      cedula: cedulaType + cedula,
-      password,
-      address,
-    };
-
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-
-    console.log(body);
-
-    fetch(`http://localhost:3000/auth/local/signup`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  };
   return (
     <Modal show={show} hide={hide} title="Add User">
-      <form onSubmit={formHandler} className="p-4 md:p-5">
+      <form className="p-4 md:p-5">
         <div className="grid gap-4 mb-10 md:mb-4 grid-cols-4 ">
           <div className="col-span-4 md:col-span-2">
             <label
@@ -98,7 +53,7 @@ export default function AddModal({
             <input
               type="text"
               inputMode="numeric"
-              name="phoneNumber"
+              name="phonNumber"
               id="phoneNumber"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
               placeholder="Type user phone number"
@@ -117,7 +72,7 @@ export default function AddModal({
                 name="cedulaType"
                 id="cedulaType"
                 className="bg-gray-50 border border-gray-300 
-                    text-gray-900 text-sm rounded-s-lg focus:ring-primary-500 focus:border-primary-500 block w-fit p-2.5"
+                text-gray-900 text-sm rounded-s-lg focus:ring-primary-500 focus:border-primary-500 block w-fit p-2.5"
               >
                 <option defaultValue="V">V</option>
                 <option value="J">J</option>
@@ -128,7 +83,7 @@ export default function AddModal({
                 name="cedula"
                 id="cedula"
                 className="bg-gray-50 border border-gray-300 
-                    text-gray-900 text-sm rounded-e-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                text-gray-900 text-sm rounded-e-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                 placeholder="Type user cedula"
                 required
               />
@@ -170,39 +125,27 @@ export default function AddModal({
           </div>
           <div className="col-span-4 md:col-span-2">
             <label
-              htmlFor="address"
+              htmlFor="description"
               className="block mb-2 text-sm font-medium text-gray-900"
             >
               Address
             </label>
             <textarea
-              id="address"
-              name="address"
+              id="description"
               className="block p-2.5 w-full h-full text-sm 
-                  text-gray-900 bg-gray-50 rounded-lg 
-                  border border-gray-300 
-                  focus:ring-blue-500 focus:border-blue-500"
+              text-gray-900 bg-gray-50 rounded-lg 
+              border border-gray-300 
+              focus:ring-blue-500 focus:border-blue-500"
               placeholder="Write your address here"
             ></textarea>
           </div>
         </div>
         <button
           type="submit"
-          className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          className="text-white flex items-center gap-x-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center m-0"
         >
-          <svg
-            className="me-1 -ms-1 w-5 h-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-          Add new product
+          <Save className="size-5" />
+          <span className="mt-1">Save changes</span>
         </button>
       </form>
     </Modal>
