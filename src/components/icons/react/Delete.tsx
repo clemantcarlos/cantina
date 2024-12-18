@@ -1,4 +1,7 @@
-export default function Delete(props) {
+import type { SVGProps } from "react";
+import type { JSX } from "react/jsx-runtime";
+
+export default function Delete(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}  

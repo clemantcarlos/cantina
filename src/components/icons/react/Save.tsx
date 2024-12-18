@@ -1,4 +1,7 @@
-export default function Save(props: React.SVGProps<SVGSVGElement>) {
+import type { SVGProps } from "react";
+import type { JSX } from "react/jsx-runtime";
+
+export default function Save(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

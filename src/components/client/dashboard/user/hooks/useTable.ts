@@ -7,8 +7,6 @@ import {
 
 import type { Pagination, User } from "../types";
 
-import useUser from "./useUser";
-
 export const getAllUsers = (
   setData: Dispatch<SetStateAction<User[]>>,
   setPagination: Dispatch<SetStateAction<Pagination>>,

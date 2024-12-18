@@ -1,4 +1,7 @@
-export default function Edit(props) {
+import type { SVGProps } from "react";
+import type { JSX } from "react/jsx-runtime";
+
+export default function Edit(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

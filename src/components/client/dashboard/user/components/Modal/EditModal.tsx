@@ -20,7 +20,7 @@ export default function AddModal({
   hide: () => void;
 }) {
 
-  const { spinnerActive, spinnerInactive } = useSpinner();
+  // const { spinnerActive, spinnerInactive } = useSpinner();
 
   const nameRef = useRef() as RefObject<HTMLInputElement>;
   const emailRef = useRef() as RefObject<HTMLInputElement>;
