@@ -4,7 +4,10 @@ import {
   type Dispatch, 
   type SetStateAction 
 } from "react";
-import type { Pagination, User } from "../types/userType";
+
+import type { Pagination, User } from "../types";
+
+import useUser from "./useUser";
 
 export const getAllUsers = (
   setData: Dispatch<SetStateAction<User[]>>,
@@ -33,7 +36,8 @@ export default function useTable() {
   const [data, setData] = useState<User[]>([]);
 
   const [showModal, setShowModal] = useState<Boolean>(false);
-  const [modalName, setModalName] = useState<string>(0);
+  const [modalName, setModalName] = useState<string>('');
+  const [user, setUser] = useState<User | null>(null);
 
   const [pagination, setPagination] = useState({
     skip: 0,
@@ -59,7 +63,12 @@ export default function useTable() {
     searchUsers(setData, search);
   };
 
-  const openModal = ({modalName}:{modalName:string}) => {
+  const openModal = ({modalName, user}:{modalName:string, user?: User}) => {
+    
+    if(user){
+      setUser(user);
+    }
+
     setModalName(modalName);
     setShowModal(true);
   }
@@ -74,6 +83,7 @@ export default function useTable() {
     pagination, 
     showModal, 
     modalName,
+    user,
     searchHandler,
     openModal,
     closeModal

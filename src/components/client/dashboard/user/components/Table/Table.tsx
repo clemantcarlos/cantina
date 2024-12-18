@@ -1,11 +1,16 @@
-import Plus from "@/icons/react/Plus";
 import Pagination from "./Pagination";
+import Spinner from "@/client/global/components/Spinner";
+
 import AddModal from "../Modal/AddModal";
-import useTable from "../../hooks/useTable";
-import Edit from "@/components/icons/react/Edit";
-import Delete from "@/components/icons/react/Delete";
 import EditModal from "../Modal/EditModal";
 import DeleteModal from "../Modal/DeleteModal";
+
+import Plus from "@/icons/react/Plus";
+import Edit from "@/icons/react/Edit";
+import Delete from "@/icons/react/Delete";
+
+import useTable from "../../hooks/useTable";
+import useSpinner from "@/client/global/hooks/useSpinner";
 
 export default function Table() {
   const {
@@ -13,16 +18,19 @@ export default function Table() {
     pagination,
     showModal,
     modalName,
+    user,
     searchHandler,
     openModal,
     closeModal
   } = useTable();
 
+  const { show: showSpinner } = useSpinner();
+
   const modalList:{[key:string]:JSX.Element | string} = {
     'default': '',
     'add': <AddModal show={showModal} hide={closeModal}/>,
-    'edit': <EditModal show={showModal} hide={closeModal}/>,
-    'delete': <DeleteModal show={showModal} hide={closeModal}/>
+    'edit': <EditModal show={showModal} hide={closeModal} user = {user}/>,
+    'delete': <DeleteModal show={showModal} hide={closeModal} user = {user}/>
   }
 
   return (
@@ -116,12 +124,12 @@ export default function Table() {
                   <td className="px-6 py-4 text-center">
                     <button className="text-blue-600  
                       hover:cursor-pointer hover:text-blue-800"
-                      onClick={() => openModal({modalName:'edit'})}>
+                      onClick={() => openModal({modalName:'edit', user})}>
                       <Edit />
                     </button>
                     <button className="text-rose-600
                       hover:cursor-pointer hover:text-rose-800"
-                      onClick={() => openModal({modalName:'delete'})}>
+                      onClick={() => openModal({modalName:'delete', user})}>
                       <Delete />
                     </button>
                   </td>
@@ -139,6 +147,7 @@ export default function Table() {
         </table>
       </div>
       <Pagination skip={pagination.take} total={pagination.total} />
+      <Spinner show={showSpinner}/>
       {modalList[modalName]}
     </>
   );
