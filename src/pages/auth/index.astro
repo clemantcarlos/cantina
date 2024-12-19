@@ -1,0 +1,84 @@
+---
+import Layout from "@/layouts/BasicLayout.astro";
+import Gmail from "@/icons/Gmail.astro";
+import Facebook from "@/icons/Facebook.astro";
+import AppleLogo from "@/icons/AppleLogo.astro";
+---
+
+<Layout title="Cantina">
+  <section class="w-dvw h-dvh flex items-center justify-center px-4">
+    <form class="w-full max-w-md px-4 py-2 text-primary">
+      <h2 class="text-xl font-bold text-center mb-4">
+        Iniciar sesión
+      </h2>
+      <p class="text-sm font-bold text-center mb-10">
+        Todavía no tienes una cuenta?
+        <a href="/auth/login" class="text-blue-700 hover:text-blue-800">
+          Registrate  
+        </a>
+      </p>
+      <input
+        type="email"
+        id="email"
+        class="bg-gray-200 font-medium text-gray-900 text-sm rounded-lg 
+          block w-full p-2.5 mb-5"
+        placeholder="example@mail.com" 
+        required
+      />
+      <input
+        type="password"
+        id="password"
+        class="bg-gray-200 font-medium text-gray-900 text-sm rounded-lg 
+          block w-full p-2.5 mb-5"
+        placeholder="********"
+        required
+      />
+      <div class="flex items-start mb-5">
+        <div class="flex items-center h-5">
+          <input
+            id="remember"
+            type="checkbox"
+            value=""
+            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300"
+            required
+          />
+        </div>
+        <label
+          for="remember"
+          class="ms-2 text-sm font-medium text-gray-900">
+          Mantener sesión
+        </label>
+      </div>
+      <div class="grid grid-cols-3 items-center mb-5 gap-x-2">
+        <span class="h-0 border border-gray-200"></span>
+        <span class="text-center font-bold">
+          Inicia sesión con
+        </span>
+        <span class="h-0 border border-gray-200"></span>
+      </div>
+      <div class="flex align-items-center justify-between gap-x-4 mb-5">
+        <button class="w-full h-14 border border-gray-200 rounded-md py-2
+          hover:bg-gray-200 transition-all">
+          <Gmail class="size-full" />
+        </button>
+        <button class="w-full h-14 border border-gray-200 rounded-md py-2
+          hover:bg-gray-200 transition-all">
+          <Facebook class="size-full" />
+        </button>
+        <button class="w-full h-14 border border-gray-200 rounded-md py-2
+          hover:bg-gray-200 transition-all">
+          <AppleLogo class="size-full fill-current text-black" />
+        </button>
+      </div>
+      <button class="w-full text-white bg-blue-700 
+        hover:bg-transparent hover:text-blue-700
+        border border-blue-700 rounded-lg
+        focus:ring-4 focus:outline-none focus:ring-blue-300 
+        text-lg font-medium text-center
+        px-5 py-2.5 transition-all"
+        type="submit">
+        Continue
+      </button>
+    </form>
+  </section>
+</Layout>
