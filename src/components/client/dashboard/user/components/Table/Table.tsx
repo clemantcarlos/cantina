@@ -30,7 +30,7 @@ export default function Table() {
     'default': '',
     'add': <AddModal show={showModal} hide={closeModal}/>,
     'edit': <EditModal show={showModal} hide={closeModal} user = {user}/>,
-    'delete': <DeleteModal show={showModal} hide={closeModal}/>
+    'delete': <DeleteModal show={showModal} hide={closeModal} user = {user}/>,
   }
 
   return (

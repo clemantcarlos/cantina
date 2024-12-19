@@ -9,6 +9,7 @@ import {
   useRef, 
   type RefObject 
 } from "react";
+import useTable from "../../hooks/useTable";
 
 export default function AddModal({
   user,
@@ -21,6 +22,8 @@ export default function AddModal({
 }) {
 
   // const { spinnerActive, spinnerInactive } = useSpinner();
+
+  const {data, setData} = useTable();
 
   const nameRef = useRef() as RefObject<HTMLInputElement>;
   const emailRef = useRef() as RefObject<HTMLInputElement>;
@@ -83,9 +86,19 @@ export default function AddModal({
       }
     )
     .then((res) => res.json())
-    .then(() => {
+    .then((userData) => {
+      data.forEach((user) => {
+        if(user.id === userData.id){
+          user.name = userData.name;
+          user.email = userData.email;
+          user.phoneNumber = userData.phoneNumber;
+          user.cedula = userData.cedula;
+          user.address = userData.address;
+        }
+      })
+      setData(data);
+
       hide();
-      window.location.reload();
     })
     .catch((err) => {
       console.log(err);

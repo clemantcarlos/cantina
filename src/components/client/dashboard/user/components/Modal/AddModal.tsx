@@ -1,3 +1,4 @@
+import useTable from "../../hooks/useTable";
 import Modal from "./Modal";
 export default function AddModal({
   show,
@@ -6,9 +7,11 @@ export default function AddModal({
   show: Boolean;
   hide: () => void;
 }) {
+
+  const { data, setData } = useTable();
+
   const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("form handler");
 
     const formData = new FormData(e.currentTarget);
 
@@ -35,8 +38,6 @@ export default function AddModal({
       return;
     }
 
-    console.log(body);
-
     fetch(`http://localhost:3000/auth/local/signup`, {
       method: "POST",
       headers: {
@@ -44,9 +45,14 @@ export default function AddModal({
       },
       body: JSON.stringify(body),
     })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
+    .then( res => res.json())
+    .then((user) => {
+      setData([
+        ...data,
+        user
+      ])
+      
+      hide();
     })
     .catch((err) => {
       console.log(err);

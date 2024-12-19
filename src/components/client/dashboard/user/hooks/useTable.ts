@@ -45,7 +45,7 @@ export default function useTable() {
 
   useEffect(() => {
     getAllUsers(setData, setPagination);
-  }, []);
+  }, [data]);
 
   const searchHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -82,6 +82,7 @@ export default function useTable() {
     showModal, 
     modalName,
     user,
+    setData,
     searchHandler,
     openModal,
     closeModal

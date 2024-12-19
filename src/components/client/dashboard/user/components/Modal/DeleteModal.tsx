@@ -1,16 +1,54 @@
 
 import Modal from "./Modal";
+import type { User } from '../../types/index';
+import useTable from "../../hooks/useTable";
 export default function AddModal({
   show,
+  user,
   hide,
 }: {
   show: Boolean;
+  user: User | null
   hide: () => void;
 }) {
 
+  const { data, setData } = useTable();
+
   const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("form handler");
+    
+    if(!user) return 
+    
+    const { id, email } = user
+
+    const formData = new FormData(e.currentTarget);
+    const emailInput = formData.get('email') as string;
+
+    if (emailInput !== email) {
+      alert('Email is not match')
+      return
+    }
+
+        fetch(`http://localhost:3000/user/${id}`,
+          {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyYjFlMDljNC05NGY0LTRlNjMtODVkMi0xNzFhM2U4NmUzZDUiLCJlbWFpbCI6ImNsZW1hbnRjYXJsb3MxMUBnbWFpbC5jb20iLCJpYXQiOjE3MzQ2MTMzMTIsImV4cCI6MTczNDYxNDIxMn0.6hF5tiMvE5FeFXtc8woc_z3MPH0RlcqDShHamJ_ouoI`
+            }
+          }
+        )
+        .then(res => res.json())
+        .then(userData => {
+          const { id } = userData;
+          const filteredData = data.filter((user: User)=> user.id !== id)
+          setData(filteredData);
+          
+          hide();
+        })
+        .catch(err => {
+          console.log(err)
+        })
   };
 
   return (
