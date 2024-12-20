@@ -147,8 +147,10 @@ export default function Table() {
           </tbody>
         </table>
       </div>
+      
       <Pagination skip={pagination.take} total={pagination.total} />
       <Spinner show={showSpinner} />
+
       <ModalContext.Provider value={{ show: showModal,  hide: closeModal, user }}>
         {modalList[modalName]}
       </ModalContext.Provider>

@@ -41,12 +41,9 @@ export default function AddModal() {
       body: JSON.stringify(body),
     })
     .then( res => res.json())
-    .then((user) => {
-      setTableData([
-        ...tableData,
-        user
-      ])
-      
+    .then((data) => {
+      const { user } = data;
+      setTableData([...tableData, user]);
       hide();
     })
     .catch((err) => {

@@ -27,7 +27,7 @@ export default function AddModal() {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyYjFlMDljNC05NGY0LTRlNjMtODVkMi0xNzFhM2U4NmUzZDUiLCJlbWFpbCI6ImNsZW1hbnRjYXJsb3MxMUBnbWFpbC5jb20iLCJpYXQiOjE3MzQ2MTMzMTIsImV4cCI6MTczNDYxNDIxMn0.6hF5tiMvE5FeFXtc8woc_z3MPH0RlcqDShHamJ_ouoI`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyYjFlMDljNC05NGY0LTRlNjMtODVkMi0xNzFhM2U4NmUzZDUiLCJlbWFpbCI6ImNsZW1hbnRjYXJsb3MxMUBnbWFpbC5jb20iLCJpYXQiOjE3MzQ3MTk5ODcsImV4cCI6MTczNDcyMDg4N30.ttPWAfgy99WE038j-3osJW4-pRA58vg_QCnqcqULPOY`,
       },
     })
       .then((res) => res.json())

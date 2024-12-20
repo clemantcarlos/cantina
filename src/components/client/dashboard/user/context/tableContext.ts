@@ -1,6 +1,11 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, type Dispatch, type SetStateAction } from "react";
+import type { User } from "../types";
 
-export const TableContext = createContext<any>(undefined);
+interface ITableContext {
+  tableData: User[];
+  setTableData: Dispatch<SetStateAction<User[]>>;
+}
+export const TableContext = createContext<ITableContext | undefined>(undefined);
 
 export function useTableContext(){
   const table = useContext(TableContext)
