@@ -11,30 +11,27 @@ import Delete from "@/icons/react/Delete";
 
 import useTable from "../../hooks/useTable";
 import useSpinner from "@/client/global/hooks/useSpinner";
+import useModal from "../../hooks/useModal";
+
+import { ModalContext } from "../../context/modalContext";
+import { TableContext } from "../../context/tableContext";
 
 export default function Table() {
-  const {
-    data,
-    pagination,
-    showModal,
-    modalName,
-    user,
-    searchHandler,
-    openModal,
-    closeModal
-  } = useTable();
+  const { tableData, pagination, searchHandler, setTableData } = useTable();
+
+  const { showModal, modalName, user, openModal, closeModal } = useModal();
 
   const { show: showSpinner } = useSpinner();
 
-  const modalList:{[key:string]:JSX.Element | string} = {
-    'default': '',
-    'add': <AddModal show={showModal} hide={closeModal}/>,
-    'edit': <EditModal show={showModal} hide={closeModal} user = {user}/>,
-    'delete': <DeleteModal show={showModal} hide={closeModal} user = {user}/>,
-  }
+  const modalList: { [key: string]: JSX.Element | string } = {
+    default: "",
+    add: <AddModal/>,
+    edit: <EditModal/>,
+    delete: <DeleteModal/>,
+  };
 
   return (
-    <>
+    <TableContext.Provider value={{tableData, setTableData}}>
       <header className="w-full flex justify-between items-center">
         <form
           className="flex-1 max-w-md shadow-md rounded-lg"
@@ -80,7 +77,7 @@ export default function Table() {
           </div>
         </form>
         <button
-          onClick={() => openModal({modalName:'add'})}
+          onClick={() => openModal({ modalName: "add" })}
           type="button"
           className="size-9 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm text-center inline-flex items-center"
         >
@@ -107,8 +104,8 @@ export default function Table() {
             </tr>
           </thead>
           <tbody>
-            {data &&
-              data.map((user) => (
+            {tableData &&
+              tableData.map((user) => (
                 <tr
                   className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                   key={user.id}
@@ -122,21 +119,25 @@ export default function Table() {
                   <td className="px-6 py-4">{user.email}</td>
                   <td className="px-6 py-4">{user.phoneNumber}</td>
                   <td className="px-6 py-4 text-center">
-                    <button className="text-blue-600  
+                    <button
+                      className="text-blue-600  
                       hover:cursor-pointer hover:text-blue-800"
-                      onClick={() => openModal({modalName:'edit', user})}>
+                      onClick={() => openModal({ modalName: "edit", user })}
+                    >
                       <Edit />
                     </button>
-                    <button className="text-rose-600
+                    <button
+                      className="text-rose-600
                       hover:cursor-pointer hover:text-rose-800"
-                      onClick={() => openModal({modalName:'delete', user})}>
+                      onClick={() => openModal({ modalName: "delete", user })}
+                    >
                       <Delete />
                     </button>
                   </td>
                 </tr>
               ))}
-            {!data ||
-              (data.length === 0 && (
+            {!tableData ||
+              (tableData.length === 0 && (
                 <tr>
                   <td colSpan={4} className="px-6 py-4 text-center">
                     Usuarios no encontrados
@@ -147,8 +148,10 @@ export default function Table() {
         </table>
       </div>
       <Pagination skip={pagination.take} total={pagination.total} />
-      <Spinner show={showSpinner}/>
-      {modalList[modalName]}
-    </>
+      <Spinner show={showSpinner} />
+      <ModalContext.Provider value={{ show: showModal,  hide: closeModal, user }}>
+        {modalList[modalName]}
+      </ModalContext.Provider>
+    </TableContext.Provider>
   );
 }

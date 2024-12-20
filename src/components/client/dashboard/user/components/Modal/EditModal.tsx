@@ -1,29 +1,15 @@
-
-import Modal from "./Modal";
+import { useEffect, useRef, type RefObject } from "react";
+import type { User } from "../../types";
 
 import Save from "@/icons/react/Save";
-import useSpinner from "@/client/global/hooks/useSpinner";
-import type { User } from "../../types";
-import { 
-  useEffect, 
-  useRef, 
-  type RefObject 
-} from "react";
-import useTable from "../../hooks/useTable";
+import Modal from "./Modal";
 
-export default function AddModal({
-  user,
-  show,
-  hide,
-}: {
-  user: User | null;
-  show: Boolean;
-  hide: () => void;
-}) {
+import { useModalContext } from "../../context/modalContext";
+import { useTableContext } from "../../context/tableContext";
 
-  // const { spinnerActive, spinnerInactive } = useSpinner();
-
-  const {data, setData} = useTable();
+export default function AddModal() {
+  const { show, hide, user } = useModalContext();
+  const { tableData, setTableData } = useTableContext();
 
   const nameRef = useRef() as RefObject<HTMLInputElement>;
   const emailRef = useRef() as RefObject<HTMLInputElement>;
@@ -34,15 +20,9 @@ export default function AddModal({
   const confirmPasswordRef = useRef() as RefObject<HTMLInputElement>;
   const addressRef = useRef() as RefObject<HTMLTextAreaElement>;
 
-  useEffect(()=>{
-    if(user){
-      const {
-        name,
-        email,
-        phoneNumber,
-        cedula,
-        address
-      } = user;
+  useEffect(() => {
+    if (user) {
+      const { name, email, phoneNumber, cedula, address } = user;
 
       nameRef.current!.value = name;
       emailRef.current!.value = email;
@@ -50,7 +30,7 @@ export default function AddModal({
       cedulaRef.current!.value = cedula.slice(1);
       addressRef.current!.value = address;
     }
-  }, [])
+  }, []);
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -64,7 +44,7 @@ export default function AddModal({
     const cedulaType = formData.get("cedulaType") as string;
     const address = formData.get("address") as string;
 
-    if(!name || !email || !phoneNumber || !cedula || !cedulaType || !address){
+    if (!name || !email || !phoneNumber || !cedula || !cedulaType || !address) {
       return;
     }
 
@@ -73,37 +53,35 @@ export default function AddModal({
       email,
       phoneNumber,
       cedula: cedulaType + cedula,
-      address
-    }
+      address,
+    };
 
-    fetch(`http://localhost:3000/user/${user!.id}`,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-      }
-    )
-    .then((res) => res.json())
-    .then((userData) => {
-      data.forEach((user) => {
-        if(user.id === userData.id){
-          user.name = userData.name;
-          user.email = userData.email;
-          user.phoneNumber = userData.phoneNumber;
-          user.cedula = userData.cedula;
-          user.address = userData.address;
-        }
-      })
-      setData(data);
-
-      hide();
+    fetch(`http://localhost:3000/user/${user!.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
     })
-    .catch((err) => {
-      console.log(err);
-    });
-  }
+      .then((res) => res.json())
+      .then((userData) => {
+        tableData.forEach((user: User) => {
+          if (user.id === userData.id) {
+            user.name = userData.name;
+            user.email = userData.email;
+            user.phoneNumber = userData.phoneNumber;
+            user.cedula = userData.cedula;
+            user.address = userData.address;
+          }
+        });
+        
+        setTableData(tableData);
+        hide();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <Modal show={show} hide={hide} title="Add User">
@@ -205,7 +183,7 @@ export default function AddModal({
                 type="password"
                 name="password"
                 id="password"
-                autoComplete='off'
+                autoComplete="off"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 disabled:bg-slate-200"
                 placeholder="********"
                 disabled={true}
@@ -223,7 +201,7 @@ export default function AddModal({
                 type="password"
                 name="confirmPassword"
                 id="confirmPassword"
-                autoComplete='off'
+                autoComplete="off"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 disabled:bg-slate-200"
                 placeholder="********"
                 disabled={true}
@@ -237,7 +215,8 @@ export default function AddModal({
             >
               Address
             </label>
-            <textarea className="block p-2.5 w-full h-full text-sm 
+            <textarea
+              className="block p-2.5 w-full h-full text-sm 
               text-gray-900 bg-gray-50 rounded-lg 
               border border-gray-300 
               focus:ring-blue-500 focus:border-blue-500"

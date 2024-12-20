@@ -9,7 +9,8 @@ export default function Pagination(props: IProps) {
       <span className="text-sm text-gray-700 dark:text-gray-400">
         Mostrando
           {
-            skip > total ? '' : <>
+            skip > total ? '' : 
+            <>
               <span className="font-semibold text-gray-900 dark:text-white mx-1">
                 {skip}
               </span>

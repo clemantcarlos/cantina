@@ -1,14 +1,9 @@
-import useTable from "../../hooks/useTable";
+import { useModalContext } from "../../context/modalContext";
+import { useTableContext } from "../../context/tableContext";
 import Modal from "./Modal";
-export default function AddModal({
-  show,
-  hide,
-}: {
-  show: Boolean;
-  hide: () => void;
-}) {
-
-  const { data, setData } = useTable();
+export default function AddModal() {
+  const { show, hide } = useModalContext();
+  const { tableData, setTableData } = useTableContext();
 
   const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,8 +42,8 @@ export default function AddModal({
     })
     .then( res => res.json())
     .then((user) => {
-      setData([
-        ...data,
+      setTableData([
+        ...tableData,
         user
       ])
       
@@ -58,6 +53,7 @@ export default function AddModal({
       console.log(err);
     });
   };
+  
   return (
     <Modal show={show} hide={hide} title="Add User">
       <form onSubmit={formHandler} className="p-4 md:p-5">
@@ -152,6 +148,7 @@ export default function AddModal({
                 type="password"
                 name="password"
                 id="password"
+                autoComplete="off"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                 placeholder="********"
                 required
@@ -168,6 +165,7 @@ export default function AddModal({
                 type="password"
                 name="confirmPassword"
                 id="confirmPassword"
+                autoComplete="off"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                 placeholder="********"
                 required

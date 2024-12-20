@@ -1,41 +1,12 @@
 import { 
   useEffect, 
   useState, 
-  type Dispatch, 
-  type SetStateAction 
 } from "react";
 
-import type { Pagination, User } from "../types";
-
-export const getAllUsers = (
-  setData: Dispatch<SetStateAction<User[]>>,
-  setPagination: Dispatch<SetStateAction<Pagination>>,
-  skip:number = 0,
-  take:number = 10
-) => {
-  fetch(`http://localhost:3000/user?skip=${skip}&take=${take}`)
-  .then((res) => res.json())
-  .then((data) => {
-    setData(data.users);
-    setPagination({
-      skip,
-      take,
-      total: data.count
-    });
-  });
-};
-export const searchUsers = (setData: Dispatch<SetStateAction<User[]>>, search: string) => {
-  fetch(`http://localhost:3000/user/search/${search}`)
-  .then((res) => res.json())
-  .then((data) => setData(data.users));
-};
+import useData, { getAllUsers, searchUsers } from "./useData";
 
 export default function useTable() {
-  const [data, setData] = useState<User[]>([]);
-
-  const [showModal, setShowModal] = useState<Boolean>(false);
-  const [modalName, setModalName] = useState<string>('');
-  const [user, setUser] = useState<User | null>(null);
+  const { data: tableData, setData: setTableData } = useData();
 
   const [pagination, setPagination] = useState({
     skip: 0,
@@ -44,8 +15,12 @@ export default function useTable() {
   });
 
   useEffect(() => {
-    getAllUsers(setData, setPagination);
-  }, [data]);
+    getAllUsers(setTableData, setPagination);
+  }, []);
+
+  useEffect(() => {
+    getAllUsers(setTableData, setPagination);
+  }, []);
 
   const searchHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -54,37 +29,18 @@ export default function useTable() {
     const search = formData.get("search") as string;
 
     if (!search) {
-      getAllUsers(setData, setPagination);
+      getAllUsers(setTableData, setPagination);
       return;
     }
 
-    searchUsers(setData, search);
+    searchUsers(setTableData, search);
   };
 
-  const openModal = ({modalName, user}:{modalName:string, user?: User}) => {
-    
-    if(user){
-      setUser(user);
-    }
-
-    setModalName(modalName);
-    setShowModal(true);
-  }
-
-  const closeModal = () =>{
-    setModalName('default');
-    setShowModal(false);
-  }
-
+ 
   return { 
-    data, 
+    tableData,
     pagination, 
-    showModal, 
-    modalName,
-    user,
-    setData,
+    setTableData,
     searchHandler,
-    openModal,
-    closeModal
   };
 }
