@@ -1,4 +1,8 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
+import type { 
+  Dispatch,
+  SetStateAction, 
+} from "react";
+
 import type { Pagination, User } from "../types";
 
 export const getAllUsers = (
@@ -27,8 +31,3 @@ export const searchUsers = (
   .then((res) => res.json())
   .then((data) => setData(data.users));
 };
-
-export default function useData() {
-  const [data, setData] = useState<User[]>([]);
-  return { data, setData };
-}

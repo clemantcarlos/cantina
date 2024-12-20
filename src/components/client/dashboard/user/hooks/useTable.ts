@@ -1,22 +1,16 @@
-import { 
-  useEffect, 
-  useState, 
-} from "react";
+import { useEffect, useState } from "react";
+import { getAllUsers, searchUsers } from "../utils";
 
-import useData, { getAllUsers, searchUsers } from "./useData";
+import type { User } from "../types";
 
 export default function useTable() {
-  const { data: tableData, setData: setTableData } = useData();
+   const [tableData, setTableData] = useState<User[]>([]); 
 
   const [pagination, setPagination] = useState({
     skip: 0,
     take: 10,
     total:0
   });
-
-  useEffect(() => {
-    getAllUsers(setTableData, setPagination);
-  }, []);
 
   useEffect(() => {
     getAllUsers(setTableData, setPagination);
