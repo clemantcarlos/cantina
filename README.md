@@ -1,54 +1,111 @@
-# Astro Starter Kit: Basics
+<div align="center">
 
-```sh
-npm create astro@latest -- --template basics
+ Cantina — Web Application
+
+A full-stack web application built with Astro, React, and Tailwind CSS
+
+[!TypeScript](https://www.typescriptlang.org/)
+[!Astro](https://astro.build/)
+[!React](https://react.dev/)
+[!Tailwind CSS](https://tailwindcss.com/)
+[!Vercel](https://vercel.com/)
+[!License](LICENSE)
+
+</div>
+
+> ⚠️ Work in Progress — This project is actively under development. Some features may be incomplete or still under development.
+
+***
+
+## 📋 About the Project
+
+Cantina is a web application built with Astro's server-side rendering capabilities, React for interactive components, and Tailwind CSS for styling. Originally based on the Astro Basics template, it has been extended with React components and deployed on Vercel.
+
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| SSR Rendering | Server-side rendering with Astro |
+| React Components | Interactive UI elements with React 18 |
+| State Management | Nanostores for lightweight state management |
+| Responsive Design | Mobile-first approach with Tailwind CSS |
+| Vercel Deployment | Optimized for Vercel serverless deployment |
+
+## 🏗️ Architecture
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
+cantina/
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/   # Astro and React components
+│   ├── layouts/      # Page layouts
+│   ├── pages/        # Route pages
+│   └── utils/        # Utility functions
+├── astro.config.mjs  # Astro config with Vercel adapter
+├── tailwind.config.mjs
+├── package.json
+└── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🛠️ Tech Stack
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+**Frontend:**
+- Framework: Astro 4 with SSR
+- UI Library: React 18
+- Styling: Tailwind CSS 3
+- State: Nanostores + @nanostores/react
+- Deployment: Vercel (serverless)
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🚀 Getting Started
 
-## 🧞 Commands
+### Prerequisites
 
-All commands are run from the root of the project, from a terminal:
+- Node.js >= 18
+- pnpm >= 9
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Installation
 
-## 👀 Want to learn more?
+```bash
+# Clone the repository
+git clone https://github.com/your-username/cantina.git
+cd cantina
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+# Install dependencies
+pnpm install
+```
+
+### Running the Application
+
+```bash
+pnpm start         # Start development server
+pnpm build         # Build for production
+pnpm preview       # Preview production build
+```
+
+## 📦 Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `pnpm start` | Start Astro dev server |
+| `pnpm build` | Type-check and build for production |
+| `pnpm preview` | Preview production build |
+| `pnpm astro` | Run Astro CLI commands |
+
+## 📄 License
+
+This project is licensed under the MIT License. See LICENSE for more details.
+
+***
+
+## 👤 Author
+
+**Carlos Clemant**
+
+[!GitHub](https://github.com/your-username)
+[!LinkedIn](https://linkedin.com/in/your-profile)
+
+***
+<div align="center">
+
+If you found this project helpful, give it a ⭐!
+
+</div>
